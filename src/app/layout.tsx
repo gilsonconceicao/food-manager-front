@@ -4,6 +4,7 @@ import { Header } from "@/components/Header/Header";
 import { Open_Sans } from '@next/font/google';
 import { ConfigProvider } from "antd";
 import { configTheme } from "@/theme/ConfigTheme";
+import { Suspense } from "react";
 
 const openSansFont = Open_Sans({
   weight: '400',
