@@ -31,7 +31,13 @@ export const NavigationsHeader = styled(Grid)(() => ({
     justifyContent: 'start'
 })); 
 
-export const LinkNavigation = styled(Link)<{ isActive: boolean }>(({ isActive }) => ({
+export const MobileItemsMenu = styled('div')(() => ({
+    display: 'flex',
+    flexDirection: 'column', 
+    textAlign: 'center'
+})); 
+
+export const LinkNavigation = styled(Link)<{ isActive: boolean, isMobileMode: boolean }>(({ isActive, isMobileMode }) => ({
     textDecoration: 'none',
     fontSize: '22px',
     padding: '5px 10px',
@@ -39,5 +45,6 @@ export const LinkNavigation = styled(Link)<{ isActive: boolean }>(({ isActive })
     borderBottom: isActive ? '2px solid black' : 'none',
     '&:hover': {
         background: '#e4e5e7'
-    }
+    },
+    
 }))
