@@ -1,5 +1,5 @@
 "use client";
-import { Button, Drawer, Flex, Typography, Grid as breakpoint } from "antd";
+import { Button, Drawer } from "antd";
 import React, { useEffect, useState } from "react";
 import {
   NavigationsHeader,
@@ -12,35 +12,28 @@ import { CheckCircleOutlined, MenuOutlined, ShoppingCartOutlined } from "@ant-de
 import { usePathname } from "next/navigation";
 import Grid from "antd/es/card/Grid";
 import { ActionsHeader } from "./ActionsHeader";
+import { useLayoutHook } from "@/Hooks/useLayoutHook";
 
 type MenuItemType = {
   path: string;
   label: string;
 };
 
-const { useBreakpoint } = breakpoint;
-
 export const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
   const pathname = usePathname()
-  const screens = useBreakpoint();
-  const isMobile = Object.entries(screens).map(x => {
-    return {
-      size: x[0],
-      value: x[1]
-    }
-  }).filter(x => x.value === false)[0]?.size === 'sm';
+  const { isMobile } = useLayoutHook();
 
   useEffect(() => {
     if (Boolean(isMobile) === false) {
       setOpen(false);
     }
-  }, [isMobile])
+  }, [isMobile]);
 
   const listItemsMenu = (): MenuItemType[] => {
     const listDefaultOptions: MenuItemType[] = [
       { label: "Comidas", path: "/" },
-      { label: "Pedido", path: "/order" },
+      { label: "Solicitar pedido", path: "/order" },
       { label: "Contato", path: "/contact" },
     ];
 
