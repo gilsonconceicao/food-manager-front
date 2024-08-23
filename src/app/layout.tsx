@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "@/components/Header/Header";
 import { Open_Sans } from '@next/font/google';
 import { ConfigProvider } from "antd";
 import { configTheme } from "@/theme/ConfigTheme";
-import { Suspense } from "react";
+import { Fragment, Suspense } from "react";
+import { BaseLayout } from "@/Layout/Base";
+import { Header } from "@/components/Header";
 
 const openSansFont = Open_Sans({
   weight: '400',
@@ -31,7 +32,9 @@ export default function RootLayout({
             <Header />
           </header>
           <main>
-            {children}
+            <BaseLayout>
+              {children}
+            </BaseLayout>
           </main>
         </body>
       </ConfigProvider>

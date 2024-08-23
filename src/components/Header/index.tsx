@@ -1,5 +1,5 @@
 "use client";
-import { Button, Drawer } from "antd";
+import { Button, Drawer, Space } from "antd";
 import React, { useEffect, useState } from "react";
 import {
   NavigationsHeader,
@@ -8,7 +8,7 @@ import {
   LinkNavigation,
   MobileItemsMenu
 } from "./Header.style";
-import { CheckCircleOutlined, MenuOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, CloseOutlined, MenuOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { usePathname } from "next/navigation";
 import Grid from "antd/es/card/Grid";
 import { ActionsHeader } from "./ActionsHeader";
@@ -65,13 +65,15 @@ export const Header = () => {
       </Grid>
 
       {isMobile ? (
-        <Button
-          type="text"
-          shape="circle"
-          onClick={() => setOpen(true)}
-          style={{ marginLeft: '10px' }}
-          icon={<MenuOutlined style={{ fontSize: "24px" }} />}
-        />
+        <Space>
+          <Button
+            type="text"
+            shape="circle"
+            onClick={() => setOpen(true)}
+            style={{ marginLeft: '10px' }}
+            icon={open ? <CloseOutlined style={{ fontSize: "24px" }} spin/> : <MenuOutlined style={{ fontSize: "24px" }} />}
+          />
+        </Space>
       ) : (
         <NavigationsHeader>
           {listOptionsMenu.map((option, index) => {
@@ -86,10 +88,11 @@ export const Header = () => {
 
       <Drawer
         title={`Menu`}
-        placement="right"
-        size={'large'}
+        placement="bottom"
+        size={'default'}
         onClose={() => setOpen(false)}
         open={open}
+
       >
         <MobileItemsMenu>
           {listOptionsMenu.map((option, index) => {
