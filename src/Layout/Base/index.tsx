@@ -9,9 +9,7 @@ type BaseLayoutProps = {
 export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
   return (
     <BaseLayoutContainer>
-      <>
-        {children}
-      </>
+      {children}
     </BaseLayoutContainer>
   )
 }

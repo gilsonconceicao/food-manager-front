@@ -17,7 +17,7 @@ export const HeaderComponent = styled.header((({ theme }) => ({
     alignItems: 'center',
     padding: '0 20px',
     height: '70px',
-    borderBottom: '1.5px solid #B8B8B8',
+    borderBottom: '1.5px solid #D9D9D9',
 })));
 
 export const TitleHeader = styled(Grid)(() => ({
