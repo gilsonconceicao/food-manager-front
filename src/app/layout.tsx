@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Open_Sans } from '@next/font/google';
 import { ConfigProvider } from "antd";
-import { configTheme } from "@/theme/ConfigTheme";
 import { Fragment, Suspense } from "react";
 import { BaseLayout } from "@/Layout/Base";
-import { Header } from "@/components/Header";
 
 const openSansFont = Open_Sans({
   weight: '400',
@@ -24,20 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ConfigProvider {...{
-        theme: configTheme
-      }}>
-        <body className={openSansFont.className}>
-          <header>
-            <Header />
-          </header>
-          <main>
-            <BaseLayout>
-              {children}
-            </BaseLayout>
-          </main>
-        </body>
-      </ConfigProvider>
+      <body className={openSansFont.className}>
+        <main>
+          <BaseLayout>
+            {children}
+          </BaseLayout>
+        </main>
+      </body>
     </html>
   );
 }
