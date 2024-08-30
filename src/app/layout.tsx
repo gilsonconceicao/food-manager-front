@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { Open_Sans } from '@next/font/google';
-import { ConfigProvider } from "antd";
-import { Fragment, Suspense } from "react";
+import { Open_Sans } from "@next/font/google";
 import { BaseLayout } from "@/Layout/Base";
+import "./globals.css";
+import { SideBar } from "@/components/SideBar/SideBar";
+import { Stack } from "@mui/material";
+import { Header } from "@/components/Header/Header";
 
 const openSansFont = Open_Sans({
-  weight: '400',
-  subsets: ['latin'],
+  weight: "400",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -23,11 +24,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSansFont.className}>
-        <main>
-          <BaseLayout>
+        <BaseLayout>
+          <Stack>
+            <SideBar />
+          </Stack>
+          <Stack>
+            <Header />
             {children}
-          </BaseLayout>
-        </main>
+          </Stack>
+        </BaseLayout>
       </body>
     </html>
   );

@@ -1,0 +1,1 @@
+export const iconSx = { width: 25, height: 25 }
