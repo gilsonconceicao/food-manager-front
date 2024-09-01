@@ -1,5 +1,5 @@
 import { Stack, SvgIconTypeMap } from '@mui/material';
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import React from 'react'
 import { Grading, Home, LocalDining, Moped, } from "@mui/icons-material"
 import { GroupIconAndText, LinkNavigate, NavigationsStack } from './Navigations.styled';
@@ -13,23 +13,36 @@ interface INavigations {
         muiName: string;
     },
     enable?: boolean;
-    isActive?: boolean;
+    isActive?: boolean ;
 }
 
 export const Navigations = () => {
+    const pathname = usePathname();
     const { open } = useControlMenu();
     const links: INavigations[] = [
         { label: 'Comidas', path: '/home', Icon: LocalDining },
         { label: 'Pedidos', path: '/order', Icon: Moped }, 
     ];
 
+    const linksMapped = () => {
+        return links
+            .map((x) => {
+                const pathMenu = x.path.replace('/', '');
+                return {
+                    ...x, 
+                    isActive: pathname.includes(pathMenu)
+                }
+            })
+    }; 
+    
     return (
         <NavigationsStack>
-            {links.map(({Icon, label, path}, i) => {
+            {linksMapped().map(({Icon, label, path, isActive}, i) => {
                 return (
                     <LinkNavigate
                         key={i}
                         href={path}
+                        isActive={isActive ?? false}
                     >
                         <GroupIconAndText isOpen={!!open}>
                             <Icon sx={{fontSize: 30 }}/>
