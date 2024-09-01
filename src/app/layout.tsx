@@ -5,6 +5,8 @@ import "./globals.css";
 import { SideBar } from "@/components/SideBar/SideBar";
 import { Stack } from "@mui/material";
 import { Header } from "@/components/Header/Header";
+import { StructureLayout } from "@/Layout/StructureLayout/StructureLayout";
+import { Providers } from "@/Contexts/Providers";
 
 const openSansFont = Open_Sans({
   weight: "400",
@@ -24,15 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSansFont.className}>
-        <BaseLayout>
-          <Stack>
-            <SideBar />
-          </Stack>
-          <Stack>
-            <Header />
+        <Providers>
+          <StructureLayout>
             {children}
-          </Stack>
-        </BaseLayout>
+          </StructureLayout>
+        </Providers>
       </body>
     </html>
   );
