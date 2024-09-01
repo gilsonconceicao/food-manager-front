@@ -14,3 +14,8 @@ export const SideBarStack = styled(Stack)(() => ({
     position: 'relative',
     overflow: 'hidden'
 }));
+
+export const DividerMenu = styled(Stack)(() => ({
+    borderBottom: '1px solid grey', 
+    borderTop: '1px solid grey'
+}));

@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import { Open_Sans } from "@next/font/google";
 import { BaseLayout } from "@/Layout/Base";
 import "./globals.css";
-import { SideBar } from "@/components/SideBar/SideBar";
-import { Stack } from "@mui/material";
-import { Header } from "@/components/Header/Header";
 import { StructureLayout } from "@/Layout/StructureLayout/StructureLayout";
 import { Providers } from "@/Contexts/Providers";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const openSansFont = Open_Sans({
   weight: "400",

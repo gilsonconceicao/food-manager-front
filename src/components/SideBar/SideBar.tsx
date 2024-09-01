@@ -1,26 +1,34 @@
 'use client'
 import React, { useState } from 'react'
-import { SideBarStack } from './SideBar.style'
+import { DividerMenu, SideBarStack } from './SideBar.style'
 import { Button, IconButton, Stack, Typography } from '@mui/material';
 import {
-    Fastfood as FastfoodIcon, 
-    Close as CloseIcon, 
+    Fastfood as FastfoodIcon,
+    Close as CloseIcon,
     Menu as MenuIcon
 } from '@mui/icons-material';
 import { iconSx } from '@/Constants/Generic';
 import { useControlMenu } from '@/Hooks/useMenuControl';
+import { Navigations } from './Navigations/Navigations';
 
 export const SideBar = () => {
     const { handleOpenMenu, open } = useControlMenu()
     return (
-        <SideBarStack>
+        <SideBarStack spacing={3}>
             <Typography >
-                <FastfoodIcon sx={iconSx} />
+                <FastfoodIcon sx={{ height: 40, width: 40, color: 'GrayText' }} />
             </Typography>
-            <Typography>Teste</Typography>
 
-            <Button onClick={handleOpenMenu} variant='text' sx={{color: 'black'}} >
-                {open ? <CloseIcon sx={iconSx} /> : <MenuIcon sx={iconSx} />}
+            <DividerMenu>
+                <Navigations />
+            </DividerMenu>
+            <Button
+                onClick={handleOpenMenu}
+                variant='text'
+                sx={{ color: 'black' }}
+
+            >
+                {open ? <CloseIcon sx={{ ...iconSx }} /> : <MenuIcon sx={{ ...iconSx }} />}
             </Button>
         </SideBarStack>
     )
