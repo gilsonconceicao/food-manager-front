@@ -12,7 +12,7 @@ import { useControlMenu } from '@/Hooks/useMenuControl';
 import { Navigations } from './Navigations/Navigations';
 
 export const SideBar = () => {
-    const { handleOpenMenu, open } = useControlMenu()
+    const { handleOpenMenu, open, isMobile } = useControlMenu()
     return (
         <SideBarStack spacing={3}>
             <Typography >
@@ -22,14 +22,14 @@ export const SideBar = () => {
             <DividerMenu>
                 <Navigations />
             </DividerMenu>
-            <Button
+            {!isMobile && <Button
                 onClick={handleOpenMenu}
                 variant='text'
                 sx={{ color: 'black' }}
 
             >
                 {open ? <CloseIcon sx={{ ...iconSx }} /> : <MenuIcon sx={{ ...iconSx }} />}
-            </Button>
+            </Button>}
         </SideBarStack>
     )
 }

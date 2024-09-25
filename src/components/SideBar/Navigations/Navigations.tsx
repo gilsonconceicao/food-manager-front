@@ -30,7 +30,7 @@ export const Navigations = () => {
                 const pathMenu = x.path.replace('/', '');
                 return {
                     ...x, 
-                    isActive: pathname.includes(pathMenu)
+                    isActive: pathname?.includes(pathMenu)
                 }
             })
     }; 
