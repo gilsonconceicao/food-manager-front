@@ -33,7 +33,7 @@ export const Header = () => {
             </Stack>
 
             <Drawer open={openMenuMobile} anchor='bottom' onClose={handleCloseOpen}>
-                <SideBar />
+                <SideBar onClose={handleCloseOpen}/>
             </Drawer>
         </HeaderStack>
     )

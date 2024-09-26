@@ -18,7 +18,8 @@ interface INavigations {
 
 export const Navigations = () => {
     const pathname = usePathname();
-    const { open } = useControlMenu();
+
+    const { open, isMobile, handleOpenMenu} = useControlMenu();
     const links: INavigations[] = [
         { label: 'Comidas', path: '/home', Icon: LocalDining },
         { label: 'Pedidos', path: '/order', Icon: Moped }, 
@@ -34,6 +35,11 @@ export const Navigations = () => {
                 }
             })
     }; 
+
+    const onCloseWhenIsMobileMode = () => {
+        if (isMobile) 
+            return handleOpenMenu();
+    }
     
     return (
         <NavigationsStack>
@@ -42,6 +48,7 @@ export const Navigations = () => {
                     <LinkNavigate
                         key={i}
                         href={path}
+                        onClick={onCloseWhenIsMobileMode}
                         isActive={isActive ?? false}
                     >
                         <GroupIconAndText isOpen={!!open}>

@@ -11,7 +11,11 @@ import { iconSx } from '@/Constants/Generic';
 import { useControlMenu } from '@/Hooks/useMenuControl';
 import { Navigations } from './Navigations/Navigations';
 
-export const SideBar = () => {
+type SideBarProps = {
+    onClose?: () => void;
+} 
+
+export const SideBar = ({ onClose }:SideBarProps) => {
     const { handleOpenMenu, open, isMobile } = useControlMenu()
     return (
         <SideBarStack spacing={3}>
@@ -22,14 +26,14 @@ export const SideBar = () => {
             <DividerMenu>
                 <Navigations />
             </DividerMenu>
-            {!isMobile && <Button
-                onClick={handleOpenMenu}
+            <Button
+                onClick={() => isMobile ? onClose && onClose() : handleOpenMenu()}
                 variant='text'
                 sx={{ color: 'black' }}
 
             >
                 {open ? <CloseIcon sx={{ ...iconSx }} /> : <MenuIcon sx={{ ...iconSx }} />}
-            </Button>}
+            </Button>
         </SideBarStack>
     )
 }
