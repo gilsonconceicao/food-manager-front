@@ -18,20 +18,17 @@ export const StructureLayout: React.FC<StructureLayoutType> = ({ children }) => 
     const hasModeMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const { setIsMobile, isMobile } = useControlMenu();
 
-    // Atualiza o valor de isMobile no Zustand
     React.useEffect(() => {
         setIsMobile(hasModeMobile);
     }, [hasModeMobile, setIsMobile]);
 
-
     useEffect(() => navigate.push('/home'), []);
-
 
     const RenderOutlet = () => {
         return (
             <Stack>
                 <Header />
-                <Stack m={2}>
+                <Stack m={4}>
                     {children}
                 </Stack>
             </Stack>
