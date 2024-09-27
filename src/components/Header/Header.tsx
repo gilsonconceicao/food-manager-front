@@ -1,18 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import { HeaderStack } from "./Header.style";
-import { IconButton, Stack, SwipeableDrawer, Typography } from "@mui/material";
-import { LogoutOutlined, Menu, PersonAdd } from "@mui/icons-material";
+import { Button, IconButton, Stack, SwipeableDrawer, Typography } from "@mui/material";
+import { Add, CheckCircleOutline, CheckCircleOutlineOutlined, LogoutOutlined, Menu, PersonAdd } from "@mui/icons-material";
 import { useControlMenu } from "@/Hooks/useMenuControl";
 import { SideBar } from "../SideBar/SideBar";
-import { CheckUserContainer } from "../User/CheckUser/CheckUserContainer";
 import Drawer from "../Drawer/Drawer";
+import { useRouter } from "next/navigation";
 
 export const Header = () => {
-    const [action, setAction] = useState<string | undefined>("check-user");
+    const [action, setAction] = useState<string | undefined>(undefined);
     const [openMenuMobile, setOpenMenuMobile] = useState(false);
     const { isMobile } = useControlMenu();
+    const { push } = useRouter();
     const isAuthenticated = false;
+
 
     const handleCloseOpen = () => setOpenMenuMobile(!openMenuMobile);
     const handleCloseAction = () => setAction(undefined);
@@ -22,7 +24,7 @@ export const Header = () => {
             // logout
         }
 
-        setAction("check-user");
+        push('/check-user')
     };
 
     return (
@@ -36,10 +38,6 @@ export const Header = () => {
                 justifyContent="flex-start"
                 spacing={2}
             >
-                <IconButton onClick={handleSignOrLogout}>
-                    {isAuthenticated ? <LogoutOutlined /> : <PersonAdd />}
-                </IconButton>
-
                 {isMobile && (
                     <IconButton onClick={handleCloseOpen}>
                         <Menu />
@@ -47,23 +45,23 @@ export const Header = () => {
                 )}
             </Stack>
 
+
+            {!isMobile &&
+                <Stack direction='row' alignItems='center' spacing={2}>
+                    <Button variant="outlined" startIcon={<CheckCircleOutlineOutlined />}>
+                        Entrar
+                    </Button>
+                    <Button variant="contained" startIcon={<Add />}>
+                        Cadastrar-se
+                    </Button>
+                </Stack>}
+
             <Drawer
-                title="Menu"
                 open={openMenuMobile}
                 anchor="bottom"
                 onClose={handleCloseOpen}
             >
                 <SideBar onClose={handleCloseOpen} />
-            </Drawer>
-            <Drawer
-                title="Entrar"
-                description="Preencha o campo abaixo para entrar"
-                open={action === "check-user"}
-                sx={{ width: 1000 }}
-                onClose={handleCloseAction}
-                anchor={isMobile ? "bottom" : "right"}
-            >
-                <CheckUserContainer />
             </Drawer>
         </HeaderStack>
     );

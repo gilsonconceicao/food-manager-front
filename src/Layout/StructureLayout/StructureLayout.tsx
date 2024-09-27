@@ -5,7 +5,7 @@ import { BaseLayout } from '../Base'
 import { Stack, useMediaQuery, useTheme } from '@mui/material'
 import { SideBar } from '@/components/SideBar/SideBar'
 import { Header } from '@/components/Header/Header'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useControlMenu } from '@/Hooks/useMenuControl'
 
 type StructureLayoutType = {
@@ -15,8 +15,11 @@ type StructureLayoutType = {
 export const StructureLayout: React.FC<StructureLayoutType> = ({ children }) => {
     const theme = useTheme();
     const navigate = useRouter();
+    const pathname = usePathname();
     const hasModeMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const { setIsMobile, isMobile } = useControlMenu();
+
+    const isSpecialRoute = ['check-user', 'create-user'].includes(pathname?.replace('/', '')!);
 
     React.useEffect(() => {
         setIsMobile(hasModeMobile);
@@ -37,7 +40,10 @@ export const StructureLayout: React.FC<StructureLayoutType> = ({ children }) => 
 
     if (isMobile) {
         return <RenderOutlet />
+    }
 
+    if (isSpecialRoute) {
+        return <>{children}</>
     }
     return (
         <BaseLayout>
