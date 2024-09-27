@@ -1,12 +1,12 @@
 import { Stack, styled } from "@mui/material";
 
-export const UserContainerStack = styled(Stack)({
-    position: 'absolute' as 'absolute',
-    top: '40%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+export const UserContainerStack = styled(Stack)<{
+    isMobile: boolean
+}>(({ isMobile }) => ({
     background: 'ButtonFace',
     borderRadius: '8px',
     padding: '20px',
-    width: 400
-})
+    // width: !isMobile ? 400 : '100vw',
+    display: 'block',
+    margin: '20px'
+}))

@@ -7,6 +7,7 @@ import { SideBar } from '@/components/SideBar/SideBar'
 import { Header } from '@/components/Header/Header'
 import { usePathname, useRouter } from 'next/navigation'
 import { useControlMenu } from '@/Hooks/useMenuControl'
+import { useUserTasks } from '@/Hooks/useAuthentication'
 
 type StructureLayoutType = {
     children: React.ReactNode
@@ -38,7 +39,7 @@ export const StructureLayout: React.FC<StructureLayoutType> = ({ children }) => 
         )
     }
 
-    if (isMobile) {
+    if (isMobile && !isSpecialRoute) {
         return <RenderOutlet />
     }
 

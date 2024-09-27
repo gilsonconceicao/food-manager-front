@@ -3,12 +3,12 @@ import { registrationNumberValidate } from '../Validations/registrationNumberVal
 
 declare module 'yup' {
     interface StringSchema {
-        registratioNumberValidate(): StringSchema;
+        registrationNumberValidate(): StringSchema;
     }
 }
 
-StringSchema.prototype.registratioNumberValidate = function () {
-    return this.test('registratioNumberValidate', 'CPF informado é inválido', function (value) {
+StringSchema.prototype.registrationNumberValidate = function () {
+    return this.test('registrationNumberValidate', 'CPF informado é inválido', function (value) {
         if (!value) {
             return true;
         }

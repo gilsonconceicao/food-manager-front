@@ -1,1 +1,57 @@
 export const iconSx = { width: 25, height: 25 }
+
+export const cnpjMask = [
+	/\d/,
+	/\d/,
+	".",
+	/\d/,
+	/\d/,
+	/\d/,
+	".",
+	/\d/,
+	/\d/,
+	/\d/,
+	"/",
+	/\d/,
+	/\d/,
+	/\d/,
+	/\d/,
+	"-",
+	/\d/,
+	/\d/,
+];
+
+export const cpfMaskAndSpace = [
+	/\d/,
+	/\d/,
+	/\d/,
+	".",
+	/\d/,
+	/\d/,
+	/\d/,
+	".",
+	/\d/,
+	/\d/,
+	/\d/,
+	"-",
+	/\d/,
+	/\d/,
+	/\d/,
+];
+
+export const cpfMask = [
+	/\d/,
+	/\d/,
+	/\d/,
+	".",
+	/\d/,
+	/\d/,
+	/\d/,
+	".",
+	/\d/,
+	/\d/,
+	/\d/,
+	"-",
+	/\d/,
+	/\d/,
+];
