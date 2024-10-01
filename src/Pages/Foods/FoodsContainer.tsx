@@ -3,6 +3,8 @@ import React from 'react'
 
 export const FoodsContainer = () => {
     return (
-        <div>FoodsContainer</div>
+        <div>
+            
+        </div>
     )
 }
