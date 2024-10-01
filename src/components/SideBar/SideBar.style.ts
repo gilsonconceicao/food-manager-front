@@ -5,7 +5,7 @@ type SideBarStackProps = {
 }
 
 export const SideBarStack = styled(Stack)(() => ({
-    background: 'ButtonFace',
+    background: '#151B23',
     padding: '10px',
     height: '100vh',
     transition: '0.5s',

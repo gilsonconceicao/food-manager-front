@@ -27,6 +27,21 @@ export const TextFormField = ({ name, label, ...rest }: TextFormFieldProps) => {
                             onChange={onChange}
                             value={value}
                             {...rest}
+                            InputProps={{
+                                ...rest.InputProps,
+                                sx: {
+                                    color: '#fff', // Cor do texto do input
+                                    '::placeholder': {
+                                        color: 'gray', // Cor do placeholder
+                                        opacity: 1 // Opacidade total
+                                    }
+                                }
+                            }}
+                            InputLabelProps={{
+                                sx: {
+                                    color: '#fff' // Cor da label
+                                }
+                            }}
                         />
                         {!!error && <p className="text-[10px] text-red-500">{error?.message}</p>}
                     </Grid2>

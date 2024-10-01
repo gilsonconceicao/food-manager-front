@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export const useUserTasks = () => {
     const key = 'key-user';
-    const getDataInLocal = typeof window !== "undefined" ? window.localStorage.getItem('access') : false;
+    const getDataInLocal = typeof window !== "undefined" ? window.localStorage.getItem(key) : false;
     const personData = getDataInLocal ? JSON.parse(getDataInLocal) : null;
     // const getDataInLocal = JSON.parse(localStorage.getItem(key)??""); 
     const userIsLogged = Object.values(personData ?? {}).length > 0;

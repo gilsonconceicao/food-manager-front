@@ -26,7 +26,7 @@ export const SideBar = ({ onClose }: SideBarProps) => {
     return (
         <SideBarStack spacing={3}>
             <Typography >
-                <FastfoodIcon sx={{ height: 40, width: 40, color: 'GrayText' }} />
+                <FastfoodIcon sx={{ height: 40, width: 40, color: '#fff' }} />
             </Typography>
 
             {isMobile && !isLogged && (
@@ -46,7 +46,7 @@ export const SideBar = ({ onClose }: SideBarProps) => {
             <Button
                 onClick={() => isMobile ? onClose && onClose() : handleOpenMenu()}
                 variant='text'
-                sx={{ color: 'black' }}
+                sx={{ color: '#fff' }}
 
             >
                 {open && !isMobile ? <CloseIcon sx={{ ...iconSx }} /> : isMobile ? <CloseIcon sx={{ ...iconSx }} /> : <MenuIcon sx={{ ...iconSx }} />}

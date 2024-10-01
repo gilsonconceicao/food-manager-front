@@ -30,7 +30,14 @@ export const CheckUserContainer = () => {
   }
 
   return (
-    <UserContainerStack isMobile={isMobile}>
+    <div style={{
+      backgroundColor: '#151B23', 
+      color: 'white', 
+      padding: '20px', 
+      margin: isMobile ? '30vh 10px' : '30vh auto', 
+      borderRadius: '8px', 
+      width: isMobile ? '100%' : '500px'
+    }}>
       <FormContextProvider
         validationSchema={checkUserValidationSchema}
         defaultValues={checkUserValidationDefault}
@@ -38,6 +45,6 @@ export const CheckUserContainer = () => {
       >
         <CheckUser />
       </FormContextProvider>
-    </UserContainerStack>
+    </div>
   )
 }

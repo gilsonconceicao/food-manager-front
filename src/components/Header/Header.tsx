@@ -40,7 +40,7 @@ export const Header = () => {
             >
                 {isMobile && (
                     <IconButton onClick={handleCloseOpen}>
-                        <Menu />
+                        <Menu sx={{color: '#fff'}}/>
                     </IconButton>
                 )}
             </Stack>
@@ -58,7 +58,7 @@ export const Header = () => {
 
             {isLogged && (
                 <IconButton onClick={logoutUser}>
-                    <LogoutOutlined/>
+                    <LogoutOutlined sx={{color: '#fff'}}/>
                 </IconButton>
             )}
 
