@@ -10,6 +10,7 @@ import { getUserByRegistrationNumberAsync } from '@/services/user'
 import { useUserTasks } from '@/Hooks/useAuthentication'
 import { useRouter } from 'next/navigation'
 import { useControlMenu } from '@/Hooks/useMenuControl'
+import theme from '@/Layout/Theme/Theme'
 
 export const CheckUserContainer = () => {
   const { setUser } = useUserTasks()
@@ -31,7 +32,7 @@ export const CheckUserContainer = () => {
 
   return (
     <div style={{
-      backgroundColor: '#151B23', 
+      backgroundColor: theme.palette.secondary.main, 
       color: 'white', 
       padding: '20px', 
       margin: isMobile ? '30vh 10px' : '30vh auto', 

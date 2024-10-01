@@ -8,6 +8,7 @@ import { SideBar } from "../SideBar/SideBar";
 import Drawer from "../Drawer/Drawer";
 import { useRouter } from "next/navigation";
 import { useUserTasks } from "@/Hooks/useAuthentication";
+import theme from "@/Layout/Theme/Theme";
 
 export const Header = () => {
     const [action, setAction] = useState<string | undefined>(undefined);
@@ -40,7 +41,7 @@ export const Header = () => {
             >
                 {isMobile && (
                     <IconButton onClick={handleCloseOpen}>
-                        <Menu sx={{color: '#fff'}}/>
+                        <Menu sx={{color: theme.palette.common.white}}/>
                     </IconButton>
                 )}
             </Stack>
@@ -58,7 +59,7 @@ export const Header = () => {
 
             {isLogged && (
                 <IconButton onClick={logoutUser}>
-                    <LogoutOutlined sx={{color: '#fff'}}/>
+                    <LogoutOutlined sx={{color: theme.palette.common.white}}/>
                 </IconButton>
             )}
 

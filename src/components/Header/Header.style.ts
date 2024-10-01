@@ -1,8 +1,9 @@
+import theme from "@/Layout/Theme/Theme";
 import { Stack, styled } from "@mui/material";
 
 export const HeaderStack = styled(Stack)(() => ({
-    background: '#151B23',
-    color: '#fff', 
+    background: theme.palette.secondary.main,
+    color: theme.palette.common.white, 
     padding: '20px', 
     width: '100%', 
     textAlign: 'center', 

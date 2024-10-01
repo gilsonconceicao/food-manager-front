@@ -1,3 +1,4 @@
+import theme from "@/Layout/Theme/Theme";
 import { Button, Stack, styled } from "@mui/material";
 
 type SideBarStackProps = {
@@ -5,7 +6,7 @@ type SideBarStackProps = {
 }
 
 export const SideBarStack = styled(Stack)(() => ({
-    background: '#151B23',
+    background: theme.palette.secondary.main,
     padding: '10px',
     height: '100vh',
     transition: '0.5s',

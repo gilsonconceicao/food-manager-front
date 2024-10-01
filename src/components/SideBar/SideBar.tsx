@@ -14,6 +14,7 @@ import { useControlMenu } from '@/Hooks/useMenuControl';
 import { Navigations } from './Navigations/Navigations';
 import { useRouter } from "next/navigation";
 import { useUserTasks } from '@/Hooks/useAuthentication';
+import theme from '@/Layout/Theme/Theme';
 
 type SideBarProps = {
     onClose?: () => void;
@@ -26,7 +27,7 @@ export const SideBar = ({ onClose }: SideBarProps) => {
     return (
         <SideBarStack spacing={3}>
             <Typography >
-                <FastfoodIcon sx={{ height: 40, width: 40, color: '#fff' }} />
+                <FastfoodIcon sx={{ height: 40, width: 40, color: theme.palette.common.white }} />
             </Typography>
 
             {isMobile && !isLogged && (
@@ -46,7 +47,7 @@ export const SideBar = ({ onClose }: SideBarProps) => {
             <Button
                 onClick={() => isMobile ? onClose && onClose() : handleOpenMenu()}
                 variant='text'
-                sx={{ color: '#fff' }}
+                sx={{ color: theme.palette.common.white }}
 
             >
                 {open && !isMobile ? <CloseIcon sx={{ ...iconSx }} /> : isMobile ? <CloseIcon sx={{ ...iconSx }} /> : <MenuIcon sx={{ ...iconSx }} />}

@@ -2,6 +2,7 @@
 import { Controller } from "react-hook-form";
 import { useFormContext } from "@/Contexts/FormContext";
 import { Grid2, TextField, TextFieldProps } from "@mui/material";
+import theme from "@/Layout/Theme/Theme";
 
 type TextFormFieldProps = {
     name: string,
@@ -30,16 +31,16 @@ export const TextFormField = ({ name, label, ...rest }: TextFormFieldProps) => {
                             InputProps={{
                                 ...rest.InputProps,
                                 sx: {
-                                    color: '#fff', // Cor do texto do input
+                                    color: theme.palette.common.white, 
                                     '::placeholder': {
-                                        color: 'gray', // Cor do placeholder
-                                        opacity: 1 // Opacidade total
+                                        color: 'gray',
+                                        opacity: 1 
                                     }
                                 }
                             }}
                             InputLabelProps={{
                                 sx: {
-                                    color: '#fff' // Cor da label
+                                    color: theme.palette.common.white 
                                 }
                             }}
                         />
