@@ -4,7 +4,7 @@ import React from 'react'
 import { Grading, Home, LocalDining, Moped, } from "@mui/icons-material"
 import { GroupIconAndText, LinkNavigate, NavigationsStack } from './Navigations.styled';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
-import { useControlMenu } from '@/Hooks/useMenuControl';
+import { useControlMenu } from '@/Hooks/Zustand/useMenuControl';
 
 interface INavigations {
     label: string;
@@ -18,8 +18,8 @@ interface INavigations {
 
 export const Navigations = () => {
     const pathname = usePathname();
-
     const { open, isMobile, handleOpenMenu} = useControlMenu();
+
     const links: INavigations[] = [
         { label: 'Comidas', path: '/home', Icon: LocalDining },
         { label: 'Pedidos', path: '/order', Icon: Moped }, 
@@ -53,7 +53,7 @@ export const Navigations = () => {
                     >
                         <GroupIconAndText isOpen={!!open}>
                             <Icon sx={{fontSize: 30 }}/>
-                            {open && label}
+                            {open && !isMobile ? label : isMobile ? label :  ""}
                         </GroupIconAndText>
                     </LinkNavigate>
                 )

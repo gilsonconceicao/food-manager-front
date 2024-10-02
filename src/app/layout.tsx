@@ -4,8 +4,6 @@ import { BaseLayout } from "@/Layout/Base";
 import "./globals.css";
 import { StructureLayout } from "@/Layout/StructureLayout/StructureLayout";
 import { Providers } from "@/Contexts/Providers";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 
 const openSansFont = Open_Sans({
   weight: "400",

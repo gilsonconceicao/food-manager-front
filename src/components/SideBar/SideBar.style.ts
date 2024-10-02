@@ -1,18 +1,22 @@
-import { Button, Stack, styled } from "@mui/material";
+import theme from "@/Layout/Theme/Theme";
+import { Stack, styled } from "@mui/material";
 
 type SideBarStackProps = {
     isOpen: boolean
 }
 
 export const SideBarStack = styled(Stack)(() => ({
-    background: 'ButtonFace',
+    background: theme.palette.secondary.main,
     padding: '10px',
-    height: '100vh',
+    height: '100vh', // Altura garantida para cobrir toda a tela
     transition: '0.5s',
     textAlign: 'center',
     alignContent: 'center',
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
 }));
 
 export const DividerMenu = styled(Stack)(() => ({

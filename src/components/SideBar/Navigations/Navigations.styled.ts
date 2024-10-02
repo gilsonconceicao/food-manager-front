@@ -1,3 +1,4 @@
+import theme from "@/Layout/Theme/Theme";
 import { Stack, styled } from "@mui/material";
 import Link from "next/link";
 
@@ -17,7 +18,8 @@ export const LinkNavigate = styled(Link)<{
     isActive: boolean
 }>(({isActive}) => ({
     display: 'flex', 
-    background: isActive ? '#d9d9d9' :'none',
+    color: theme.palette.common.white, 
+    background: isActive ? theme.palette.secondary.light :'none',
     flexDirection: 'column', 
     justifyContent: 'center', 
     textDecoration: 'none', 
@@ -25,7 +27,7 @@ export const LinkNavigate = styled(Link)<{
     margin: '10px 0',
     borderRadius: '7px',
     ":hover": {
-        background: '#d9d9d9'
+        background: theme.palette.secondary.light
     }
 }))
 
