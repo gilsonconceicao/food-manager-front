@@ -7,9 +7,9 @@ import { Stack } from '@mui/material'
 import { UserContainerStack } from '../Styles/user.style'
 import { FieldValues } from 'react-hook-form'
 import { getUserByRegistrationNumberAsync } from '@/services/user'
-import { useUserTasks } from '@/Hooks/useAuthentication'
+import { useUserTasks } from '@/Hooks/Zustand/useAuthentication'
 import { useRouter } from 'next/navigation'
-import { useControlMenu } from '@/Hooks/useMenuControl'
+import { useControlMenu } from '@/Hooks/Zustand/useMenuControl'
 import theme from '@/Layout/Theme/Theme'
 
 export const CheckUserContainer = () => {

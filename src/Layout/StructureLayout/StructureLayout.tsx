@@ -6,8 +6,8 @@ import { Stack, useMediaQuery, useTheme } from '@mui/material'
 import { SideBar } from '@/components/SideBar/SideBar'
 import { Header } from '@/components/Header/Header'
 import { usePathname, useRouter } from 'next/navigation'
-import { useControlMenu } from '@/Hooks/useMenuControl'
-import { useUserTasks } from '@/Hooks/useAuthentication'
+import { useControlMenu } from '@/Hooks/Zustand/useMenuControl'
+import { useUserTasks } from '@/Hooks/Zustand/useAuthentication'
 
 type StructureLayoutType = {
     children: React.ReactNode
@@ -17,7 +17,7 @@ export const StructureLayout: React.FC<StructureLayoutType> = ({ children }) => 
     const theme = useTheme();
     const navigate = useRouter();
     const pathname = usePathname();
-    const hasModeMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const hasModeMobile = useMediaQuery(theme.breakpoints.down('md'));
     const { setIsMobile, isMobile } = useControlMenu();
 
     const isSpecialRoute = ['check-user', 'create-user'].includes(pathname?.replace('/', '')!);

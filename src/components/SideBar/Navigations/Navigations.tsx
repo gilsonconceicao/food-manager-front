@@ -4,7 +4,7 @@ import React from 'react'
 import { Grading, Home, LocalDining, Moped, } from "@mui/icons-material"
 import { GroupIconAndText, LinkNavigate, NavigationsStack } from './Navigations.styled';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
-import { useControlMenu } from '@/Hooks/useMenuControl';
+import { useControlMenu } from '@/Hooks/Zustand/useMenuControl';
 
 interface INavigations {
     label: string;

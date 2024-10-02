@@ -10,10 +10,10 @@ import {
     Add
 } from '@mui/icons-material';
 import { iconSx } from '@/Constants/Generic';
-import { useControlMenu } from '@/Hooks/useMenuControl';
+import { useControlMenu } from '@/Hooks/Zustand/useMenuControl';
 import { Navigations } from './Navigations/Navigations';
 import { useRouter } from "next/navigation";
-import { useUserTasks } from '@/Hooks/useAuthentication';
+import { useUserTasks } from '@/Hooks/Zustand/useAuthentication';
 import theme from '@/Layout/Theme/Theme';
 
 type SideBarProps = {
@@ -25,7 +25,7 @@ export const SideBar = ({ onClose }: SideBarProps) => {
     const { isLogged } = useUserTasks()
     const { handleOpenMenu, open, isMobile } = useControlMenu(); 
     return (
-        <SideBarStack spacing={3}>
+        <SideBarStack spacing={3}> 
             <Typography >
                 <FastfoodIcon sx={{ height: 40, width: 40, color: theme.palette.common.white }} />
             </Typography>

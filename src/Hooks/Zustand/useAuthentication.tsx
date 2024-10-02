@@ -1,4 +1,3 @@
-import { UserType } from "@/services/user/types/user.type";
 import { useState } from "react";
 
 export const useUserTasks = () => {

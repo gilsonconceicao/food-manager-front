@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { HeaderStack } from "./Header.style";
 import { Button, IconButton, Stack, SwipeableDrawer, Typography } from "@mui/material";
 import { Add, CheckCircleOutline, CheckCircleOutlineOutlined, LogoutOutlined, Menu, PersonAdd } from "@mui/icons-material";
-import { useControlMenu } from "@/Hooks/useMenuControl";
+import { useControlMenu } from "@/Hooks/Zustand/useMenuControl";
 import { SideBar } from "../SideBar/SideBar";
 import Drawer from "../Drawer/Drawer";
 import { useRouter } from "next/navigation";
-import { useUserTasks } from "@/Hooks/useAuthentication";
+import { useUserTasks } from "@/Hooks/Zustand/useAuthentication";
 import theme from "@/Layout/Theme/Theme";
 
 export const Header = () => {

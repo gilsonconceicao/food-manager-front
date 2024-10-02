@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { BaseLayoutContainer } from './BaseLayout.style'
-import { useControlMenu } from '@/Hooks/useMenuControl';
+import { useControlMenu } from '@/Hooks/Zustand/useMenuControl';
 
 type BaseLayoutProps = {
   children: React.ReactNode;
