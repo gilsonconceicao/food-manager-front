@@ -32,7 +32,7 @@ export const StructureLayout: React.FC<StructureLayoutType> = ({ children }) => 
         return (
             <Stack>
                 <Header />
-                <Stack m={4}>
+                <Stack m={isMobile ? 2 : 4}>
                     {children}
                 </Stack>
             </Stack>
