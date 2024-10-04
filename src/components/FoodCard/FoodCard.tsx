@@ -5,6 +5,7 @@ import { ActionsCardStack, ContentCardStack, FoodCardStack, ImageCard, LoveArea 
 import { Button, Stack, Typography } from '@mui/material'
 import { useControlMenu } from '@/Hooks/Zustand/useMenuControl'
 import { AddShoppingCart, FavoriteBorderOutlined } from '@mui/icons-material'
+import { formatCurrencyInCents } from '@/Helpers/Methods/StringMethods'
 
 type FoodCardProps = {
   food: Food
@@ -19,16 +20,16 @@ export const FoodCard: React.FC<FoodCardProps> = ({ food }) => {
       </Stack>
       <ContentCardStack>
         <Typography variant='h6' fontWeight='bold'>{food.name}</Typography>
-        <hr />
-        <Typography variant='caption' fontWeight='bold'>{food.description}</Typography>
+        <Typography variant='caption' pb={1} pt={1} fontWeight='normal'>{food.description}</Typography>
       </ContentCardStack>
       <LoveArea>
         <FavoriteBorderOutlined />
       </LoveArea>
+
       <ActionsCardStack isMobile={isMobile}>
-        <Button variant="contained" sx={{ borderRadius: '0 0 8px 8px' }} startIcon={<AddShoppingCart />}>
-          Comprar
-        </Button>
+          <Button variant="contained" sx={{ borderRadius: '0' }} size='large' startIcon={<AddShoppingCart />}>
+            Comprar
+          </Button>
       </ActionsCardStack>
     </FoodCardStack>
   )

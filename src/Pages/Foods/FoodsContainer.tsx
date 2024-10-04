@@ -6,18 +6,14 @@ import { FoodHeader } from './FoodHeader';
 import { Stack } from '@mui/material';
 
 export const FoodsContainer = () => {
-    const { data: queryData, isLoading } = useFoodListQuery();
-
-    if (isLoading) {
-        return <>Carregando, meu jovem!</>
-    }
+    const { data: queryData, isLoading, isFetching, refetch} = useFoodListQuery();
 
     return (
         <div>
             <Stack mb={3}>
-                <FoodHeader />
-
+                <FoodHeader refetch={refetch} />
             </Stack>
+            {isLoading || isFetching && <>Carregando...</>}
             <Foods queryData={queryData!} />
         </div>
     )

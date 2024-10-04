@@ -23,7 +23,7 @@ export const ContentCardStack = styled(Stack)(({
 
 export const ImageCard = styled('img')(({
     display: 'block',
-    height: '20vh',
+    height: '18vh',
     borderRadius: '8px',
     objectFit: 'cover',
     width: '100%',
@@ -34,6 +34,6 @@ export const LoveArea = styled(IconButton)(({
    position: 'absolute', 
    padding: '2px', 
    borderRadius: '100%', 
-   top: '21vh', 
+   top: '19vh', 
    right: '10px'
 }))
