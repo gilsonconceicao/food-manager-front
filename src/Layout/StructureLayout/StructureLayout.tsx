@@ -26,7 +26,7 @@ export const StructureLayout: React.FC<StructureLayoutType> = ({ children }) => 
         setIsMobile(hasModeMobile);
     }, [hasModeMobile, setIsMobile]);
 
-    useEffect(() => navigate.push('/home'), []);
+    useEffect(() => navigate.push('/comidas'), []);
 
     const RenderOutlet = () => {
         return (

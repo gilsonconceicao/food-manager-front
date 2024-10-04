@@ -24,7 +24,7 @@ export const CheckUserContainer = () => {
         name: data?.name, 
         registraionNumber: data?.registrationNumber
       });
-      push('/home'); 
+      push('/comidas'); 
     } catch (error) {
       console.log("Error", error)
     }

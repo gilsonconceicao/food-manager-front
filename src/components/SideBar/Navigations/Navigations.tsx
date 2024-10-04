@@ -21,7 +21,7 @@ export const Navigations = () => {
     const { open, isMobile, handleOpenMenu} = useControlMenu();
 
     const links: INavigations[] = [
-        { label: 'Comidas', path: '/home', Icon: LocalDining },
+        { label: 'Comidas', path: '/comidas', Icon: LocalDining },
         { label: 'Pedidos', path: '/order', Icon: Moped }, 
     ];
 

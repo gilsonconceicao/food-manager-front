@@ -14,7 +14,7 @@ const theme = createTheme({
       main: '#f44336', 
     },
     background: {
-      default: '#f5f5f5', 
+      default: '#000', 
     },
     common: {
       black: '#000000', 
@@ -44,6 +44,17 @@ const theme = createTheme({
         root: {
           borderRadius: '8px', 
         },
+        contained: {
+          background: '#176', 
+          color: '#fff', 
+          ":hover": {
+            background: '#0d594d'
+          }
+        },
+        outlined: {
+          border: '1px solid #0d594d', 
+          color: '#0d594d'
+        }
       },
     },
     MuiTextField: {

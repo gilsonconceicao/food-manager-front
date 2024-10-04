@@ -49,7 +49,7 @@ export const Header = () => {
 
             {!isMobile && !isLogged &&
                 <Stack direction='row' alignItems='center' spacing={2}>
-                    <Button variant="outlined" onClick={() => push('/check-user')} startIcon={<CheckCircleOutlineOutlined />}>
+                    <Button variant="outlined" sx={{color: '#fff'}} onClick={() => push('/check-user')} startIcon={<CheckCircleOutlineOutlined />}>
                         Entrar
                     </Button>
                     <Button variant="contained" onClick={() => push('/create-user')} startIcon={<Add />}>

@@ -1,7 +1,5 @@
-import { FoodCard } from '@/components/FoodCard/FoodCard'
-import { ListPaginatation } from '@/services/@types/generic'
-import { Food } from '@/services/Foods/Foods.type'
-import { Stack, Typography } from '@mui/material'
+import { RefreshOutlined } from '@mui/icons-material'
+import { Button, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 type FoodHeaderProps = {
@@ -15,7 +13,9 @@ export const FoodHeader: React.FC<FoodHeaderProps> = (props) => {
             </Stack>
 
             <Stack>
-                
+                <Button startIcon={<RefreshOutlined/>} variant='outlined'> 
+                    Atualizar
+                </Button>
             </Stack>
         </Stack>
     )
