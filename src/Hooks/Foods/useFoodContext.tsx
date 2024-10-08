@@ -7,6 +7,8 @@ export function useFoodListQuery() {
     return useQuery({
         queryKey: ['food-get-list'], 
         enabled: true, 
+        refetchOnMount: false, 
+        refetchOnWindowFocus: false, 
         queryFn: async () => {
             const {  data } = await getListFoodAsync();
             return data as ListPaginatation<Food>; 

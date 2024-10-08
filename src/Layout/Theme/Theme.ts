@@ -3,9 +3,9 @@ import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: '#f5f5f5', 
-    },
+    // primary: {
+    //   main: '#f5f5f5', 
+    // },
     secondary: {
       main: '#151B23',
       light: '#212830'
@@ -60,7 +60,7 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          marginBottom: '16px', 
+          marginBottom: '7px', 
         },
       },
     },

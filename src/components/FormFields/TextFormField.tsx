@@ -4,7 +4,7 @@ import { useFormContext } from "@/Contexts/FormContext";
 import { Grid2, TextField, TextFieldProps } from "@mui/material";
 import theme from "@/Layout/Theme/Theme";
 
-type TextFormFieldProps = {
+export type TextFormFieldProps = {
     name: string,
     label: string
 } & TextFieldProps;
@@ -23,26 +23,12 @@ export const TextFormField = ({ name, label, ...rest }: TextFormFieldProps) => {
                     <Grid2>
                         <TextField
                             label={label}
-                            variant={rest.variant ?? "filled"}
+                            variant="outlined"
                             placeholder={label}
                             onChange={onChange}
                             value={value}
+                            error={!!error}
                             {...rest}
-                            InputProps={{
-                                ...rest.InputProps,
-                                sx: {
-                                    color: theme.palette.common.white, 
-                                    '::placeholder': {
-                                        color: 'gray',
-                                        opacity: 1 
-                                    }
-                                }
-                            }}
-                            InputLabelProps={{
-                                sx: {
-                                    color: theme.palette.common.white 
-                                }
-                            }}
                         />
                         {!!error && <p className="text-[10px] text-red-500">{error?.message}</p>}
                     </Grid2>

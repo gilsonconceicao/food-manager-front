@@ -25,8 +25,8 @@ const Drawer: React.FC<CustomDrawerProps> = ({ open, onClose, title, description
             PaperProps={{ sx: drawerStyles }}
             {...rest}
         >
-            <Stack >
-                {title && <Typography  fontSize='19px' fontWeight='bold'>{title}</Typography>}
+            <Stack p={2}>
+                {title && <Typography fontSize='22px' fontWeight='bold'>{title}</Typography>}
                 {description && <Typography fontSize='14px' fontWeight='normal'>{description}</Typography>}
                 {children}
             </Stack>
