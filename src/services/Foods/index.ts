@@ -7,3 +7,4 @@ const url = `${BASE_URL}/Food`
 
 export const getListFoodAsync = async () =>  await axios.get<ListPaginatation<Food>>(`${url}`);
 export const createFoodAsync = async (values: FoodCreateDTO) => await axios.post(`${url}`, values);
+export const updateFoodAsync = async (id: string, values: FoodCreateDTO) => await axios.put(`${url}/${id}`, values);

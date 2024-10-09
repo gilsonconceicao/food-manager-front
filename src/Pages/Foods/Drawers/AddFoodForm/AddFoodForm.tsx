@@ -26,13 +26,12 @@ export const AddFoodForm: React.FC<AddFoodFormProps> = ({ onClose }) => {
             <CurrencyTextField
                 name="price"
                 label="Preço"
-            // fullWidth
             />
             <SelectFormField
                 label='Categoria'
                 name="category"
                 options={foodCategoriesList}
-                // fullWidth
+                fullWidth
             />
             <TextFormField
                 label="Descrição"

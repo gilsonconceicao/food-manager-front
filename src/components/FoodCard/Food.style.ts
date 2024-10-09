@@ -30,10 +30,9 @@ export const ImageCard = styled('img')(({
     loading: 'lazy'
 }));
 
-export const LoveArea = styled(IconButton)(({
+export const LoveArea = styled(Stack)(({
    position: 'absolute', 
-   padding: '2px', 
    borderRadius: '100%', 
    top: '19vh', 
-   right: '10px'
+   right: '5px'
 }))
