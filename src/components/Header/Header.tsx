@@ -31,7 +31,7 @@ export const Header = () => {
 
     return (
         <HeaderStack>
-            <Typography>{personData !== null ? `Olá, ${personData?.name}` : 'Bolos caseiros e veriedades'}</Typography>
+            <Typography suppressHydrationWarning>{personData !== null ? `Olá, ${personData?.name}` : 'Bolos caseiros e veriedades'}</Typography>
 
             <Stack
                 direction="row"
@@ -40,7 +40,7 @@ export const Header = () => {
                 spacing={2}
             >
                 {isMobile && (
-                    <IconButton onClick={handleCloseOpen}>
+                    <IconButton suppressHydrationWarning onClick={handleCloseOpen}>
                         <Menu sx={{color: theme.palette.common.white}}/>
                     </IconButton>
                 )}

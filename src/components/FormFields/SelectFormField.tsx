@@ -1,6 +1,11 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent, SelectProps } from '@mui/material/Select';
 import { useFormContext } from '@/Contexts/FormContext';
-import { Grid2, Select, SelectChangeEvent, SelectProps } from '@mui/material';
-import React from 'react'
+import { Typography } from '@mui/material';
 
 export type SelectOptionType = {
     label: string;
@@ -8,12 +13,12 @@ export type SelectOptionType = {
 }
 
 type SelectFormFieldProps = {
-    name: string,
-    label: string,
-    options: SelectOptionType[]
-} & SelectProps;
+    options: SelectOptionType[];
+    name: string;
+    label: string;
+} & SelectProps
 
-export function SelectFormField({ label, name, options }: SelectFormFieldProps) {
+export function SelectFormField({ options, name, ...rest}: SelectFormFieldProps) {
     const { setValue, watch, errors} = useFormContext();
 
     const handleChange = (e: SelectChangeEvent<any>) => {
@@ -27,26 +32,29 @@ export function SelectFormField({ label, name, options }: SelectFormFieldProps) 
     }
 
     const value = watch(name);
-
+    //@ts-ignore
     const messageError = errors[name]?.message?.toString() ?? "";
 
     return (
-        <Grid2>
-            {!!value && <label style={{fontSize: '12px'}}>{label}</label>}
-            <Select
-                value={value}
-                placeholder={label}
-                onChange={(event) => handleChange(event)}
-            >
-                {options.map((item, index) => {
-                    return (
-                        <option key={index} value={item.value}>{item.label}</option>
-                    )
-                })}
-            </Select>
+        <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">{rest.label}</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={value}
+                    onChange={handleChange}
+                    {...rest}
+                >
+                    {options.map((x) => {
+                        return (
+                            <MenuItem key={x.value} value={x.value}>{x.label}</MenuItem>
+                        )
+                    })}
+                </Select>
+            </FormControl>
+            {!!errors && messageError.length > 0 && <Typography className="text-[10px] mt-2 text-red-500">{messageError}</Typography>}
 
-            {!!errors && messageError.length > 0 && <p className="text-[10px] text-red-500">{messageError}</p>}
-
-        </Grid2>
-    )
+        </Box>
+    );
 }

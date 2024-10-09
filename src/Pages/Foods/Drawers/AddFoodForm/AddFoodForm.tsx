@@ -1,6 +1,8 @@
 import { ActionsButtons } from "@/components/Buttons/ActionsButtons/ActionsButtons";
 import CurrencyTextField from "@/components/FormFields/CurrencyFormField";
+import { SelectFormField } from "@/components/FormFields/SelectFormField";
 import { TextFormField } from "@/components/FormFields/TextFormField";
+import { foodCategoriesList } from "@/services/Enums/FoodCategoryEnum";
 import { Stack } from "@mui/material";
 import React from "react";
 
@@ -25,6 +27,12 @@ export const AddFoodForm: React.FC<AddFoodFormProps> = ({ onClose }) => {
                 name="price"
                 label="Preço"
             // fullWidth
+            />
+            <SelectFormField
+                label='Categoria'
+                name="category"
+                options={foodCategoriesList}
+                // fullWidth
             />
             <TextFormField
                 label="Descrição"

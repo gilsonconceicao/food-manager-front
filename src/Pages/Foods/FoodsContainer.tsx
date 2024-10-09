@@ -13,6 +13,7 @@ export const FoodsContainer = () => {
 
     const onClose = () => setAction(undefined);
 
+    
     return (
         <div>
             <Stack mb={3}>
@@ -25,7 +26,7 @@ export const FoodsContainer = () => {
             <Foods queryData={queryData!} />
 
             <Drawer title='Adicionar comida' onClose={onClose} open={action === 'addFood'} anchor='right' size='50%'>
-                <AddFoodFormContainer onClose={onClose}/>
+                <AddFoodFormContainer onClose={onClose} refetch={refetch}/>
             </Drawer>
         </div>
     )
